@@ -10,39 +10,39 @@ import ru.test.ryazan.config._base.PersistenceUnitConfig;
         "classpath:config/${env}/database/tasks.properties"
 })
 public interface TasksPersistenceUnitConfig extends PersistenceUnitConfig {
-    @Key("servers")
+    @Key("db.tasks.typeDatabaseJdbcUrl")
+    String typeDatabaseJdbcUrl();
+    @Key("db.tasks.servers")
     @Separator("@")
     String[] servers();
-    @Key("port")
+    @Key("db.tasks.port")
     Integer port();
-    @Key("databaseName")
+    @Key("db.tasks.databaseName")
     String databaseName();
-    @Key("username")
+    @Key("db.tasks.username")
     String username();
-    @Key("password")
+    @Key("db.tasks.password")
     String password();
-    @Key("driver.class")
-    String driverClass();
-    @Key("dialect")
-    String dialect();
-    @Key("showSql")
+    @Key("db.tasks.showSql")
     Boolean showSql();
-    @Key("formatSql")
+    @Key("db.tasks.formatSql")
     Boolean formatSql();
-    @Key("useSqlComments")
+    @Key("db.tasks.useSqlComments")
     Boolean useSqlComments();
 
-    @Key("hikari.minimumIdle")
+    @Key("db.tasks.hikari.poolName")
+    String poolName();
+    @Key("db.tasks.hikari.minimumIdle")
     String minimumIdle();
-    @Key("hikari.maximumPoolSize")
+    @Key("db.tasks.hikari.maximumPoolSize")
     String maximumPoolSize();
-    @Key("hikari.connectionTimeout")
+    @Key("db.tasks.hikari.connectionTimeout")
     String connectionTimeout();
-    @Key("hikari.idleTimeout")
+    @Key("db.tasks.hikari.idleTimeout")
     String idleTimeout();
-    @Key("hikari.maxLifetime")
+    @Key("db.tasks.hikari.maxLifetime")
     String maxLifetime();
 
-    @Key("scan.entity.package")
+    @Key("db.tasks.scan.entity.package")
     String scanEntityPackage();
 }

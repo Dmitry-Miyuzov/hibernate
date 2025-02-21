@@ -1,4 +1,4 @@
-package ru.test.ryazan.dao.tasks.schema.tasks.entity;
+package ru.test.ryazan.database.dao.tasks.schema.dictionaries.entity;
 
 import jakarta.persistence.*;
 
@@ -8,21 +8,21 @@ public class DictionaryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String description;
+    private String name;
 
     public Integer getId() {
         return id;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

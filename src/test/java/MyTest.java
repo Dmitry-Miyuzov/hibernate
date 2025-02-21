@@ -1,20 +1,20 @@
-import org.hibernate.Session;
 import org.junit.jupiter.api.Test;
-import ru.test.ryazan.dao.tasks.schema.tasks.DictionaryDao;
-import ru.test.ryazan.dao.tasks.schema.tasks.entity.DictionaryEntity;
-import ru.test.ryazan.repository._DatabaseRepository;
+import ru.test.ryazan.database.dao.tasks.schema.dictionaries.entity.DictionaryEntity;
+import ru.test.ryazan.database.dao.tasks.schema.tasks.entity.UserEntity;
+import ru.test.ryazan.database._repository._DatabaseRepository;
 
 public class MyTest {
 
 
     @Test
     public void testik() {
-
         System.out.println();
-        DictionaryDao dictionaryDao = _DatabaseRepository.TASKS_REPOSITORY().SCHEMA_DICTIONARIES
-                .dictionaryDao;
-        Session session = dictionaryDao.sessionFactory.openSession();
-        DictionaryEntity dictionaryEntity = session.get(DictionaryEntity.class, 1);
+        DictionaryEntity dictionaryEntity = _DatabaseRepository.TASKS_REPOSITORY.SCHEMA_DICTIONARIES
+                .dictionaryDao
+                .getById(1);
+        UserEntity byId = _DatabaseRepository.TASKS_REPOSITORY.SCHEMA_TASKS
+                .userDao
+                .getById(1);
         System.out.println();
     }
 }
